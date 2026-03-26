@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AdminScreens.Chargebacks">
+    <include layout="@layout/background_image" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/backBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:src="@drawable/back_btn_ic" />
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/headertext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ChargeBacks"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+                <EditText
+                    android:editable="false"
+                    android:focusable="false"
+                    android:id="@+id/cur_date"
+                    android:layout_height="30dp"
+                    android:layout_width="150dp"
+                    android:maxLines="1"
+                    android:paddingEnd="10dp"
+                    android:singleLine="true"
+                    android:paddingStart="10dp"
+                    android:hint="Date"
+                    android:visibility="visible"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:background="@color/transparent_background"
+                    android:drawableEnd="@drawable/ic_calender"
+                    android:drawablePadding="10dp"/>
+                <!-- Search EditText with search icon -->
+
+                <ImageView
+                    android:layout_marginEnd="10dp"
+                    android:id="@+id/cb_help_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_help"/><!-- Adjust padding as needed -->
+            </LinearLayout>
+            <EditText
+                android:layout_marginRight="10dp"
+                android:id="@+id/editFilter"
+                android:layout_marginBottom="10dp"
+                android:layout_width="200dp"
+                android:visibility="gone"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:layout_marginLeft="10dp"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:hint="Search"
+                android:paddingLeft="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:background="@drawable/textfiled_background"
+                />
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/pdf_dwn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/file_download"/>
+
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+    <TextView
+        android:id="@+id/emptyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawableLeft="@android:drawable/stat_sys_warning"
+        android:text="No records available"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:visibility="invisible"/>
+</RelativeLayout>

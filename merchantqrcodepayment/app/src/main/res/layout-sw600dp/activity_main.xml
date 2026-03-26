@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The root view must be the DrawerLayout -->
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_drawer_layout"
+    style="@style/WH2"
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText">
+    <include layout="@layout/background_image" />
+    <LinearLayout
+        style="@style/WH2"
+        android:orientation="vertical"
+        android:layout_marginLeft="210dp"
+        android:layout_marginRight="210dp">
+        <TextView
+            android:id="@+id/welcomeText"
+            style="@style/MAweltext"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:textSize="37sp" />
+            <LinearLayout
+                style="@style/WH4"
+                android:layout_marginStart="55dp"
+                android:orientation="horizontal">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileimg"
+                    style="@style/MAproimg"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/ic_user_profile"
+                    app:civ_border_color='@color/white'
+                    app:civ_border_width="2dp" />
+                        <LinearLayout
+                            android:layout_marginTop="2dp"
+                            android:layout_marginStart="10dp"
+                            style="@style/WH1"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/uId_dash"
+                                android:text="Representative Id"
+                                style="@style/MAtab"/>
+                            <TextView
+                                android:id="@+id/uname_dash"
+                                android:text="Representative Name "
+                                style="@style/MAtab"/>
+                            <TextView
+                                android:text="Login Time "
+                                style="@style/MAtab"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            style="@style/WH1"
+                            android:layout_marginStart="10dp"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/merchantid"
+                                style="@style/MAtab"/>
+                            <TextView
+                                android:layout_marginTop="5dp"
+                                android:id="@+id/merchantname"
+                                style="@style/MAtab"/>
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/lastvisitedtime"
+                                style="@style/MAtab"/>
+                            <Chronometer
+                                android:id="@+id/chronometer"
+                                android:layout_marginStart="5dp"
+                                style="@style/MAtab"/>
+                            </LinearLayout>
+                        </LinearLayout>
+            <LinearLayout
+                android:id="@+id/transCountLayout"
+                android:layout_gravity="center"
+                android:layout_width="400dp"
+                android:layout_marginStart="30dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <FrameLayout
+                    style="@style/WH1">
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/round_bg"/>
+                    <TextView
+                        android:id="@+id/transCount"
+                        style="@style/WH1"
+                        android:text="0"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center"/>
+                </FrameLayout>
+                <TextView
+                    android:id="@+id/todayTransAmount"
+                    android:layout_marginTop="10dp"
+                    style="@style/MAtab"
+                    android:text="0.00"/>
+            </LinearLayout>
+            </LinearLayout>
+        <GridView
+            android:id="@+id/groupfingertips"
+            style="@style/MAgrid"/>
+    </LinearLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        style="@style/MAnavigation"
+        app:menu="@menu/navigation_menu"/>
+</androidx.drawerlayout.widget.DrawerLayout>

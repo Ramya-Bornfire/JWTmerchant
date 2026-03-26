@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/cl"
+        android:title="@string/call"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/em"
+        android:title="@string/email"
+        app:showAsAction="never"/>
+<!--    <item
+        android:id="@+id/wp"
+        android:title="Whatsapp"
+        app:showAsAction="never"/>-->
+</menu>

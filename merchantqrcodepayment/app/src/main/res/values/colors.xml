@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="liteOrange">#ff9248</color>
+    <color name="orange">#ff5722</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="darkgrey">#8a8a8a</color>
+    <color name="lightgrey">#c8ddd9d9</color>
+    <color name="nonedit">#C8868686</color>
+    <color name="red">#F44336</color>
+    <color name="green">#ff4fb553</color>
+    <color name="button_white">@android:color/white</color>
+    <color name="color1">#00000000</color>
+    <color name="color2">#00000000</color>
+    <color name="bk1">#FFA500</color>
+    <color name="bk2">#42427C</color>
+    <color name="bk3">#247CC8</color>
+    <color name="bk4">#FFD700</color>
+    <color name="bk5">#1A1A1A</color>
+    <color name="bk6">#778899</color>
+    <color name="bk7">#091E83</color>
+    <color name="bk8">#0C2B9C</color>
+    <color name="bk9">#4D5CB1</color>
+    <color name="bk12">#2D033B</color>
+    <color name="bk13">#810CA8</color>
+    <color name="bk14">#395B64</color>
+    <color name="bk15">#2C3333</color>
+    <color name="bk10">#1B1A55</color>
+    <color name="bk11">#070F2B</color>
+    <color name="cyan">#b5e3e7</color>
+    <color name="transparent_background">#00000000</color>
+
+</resources>

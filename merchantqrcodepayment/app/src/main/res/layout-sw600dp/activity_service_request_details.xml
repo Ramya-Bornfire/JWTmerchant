@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/llmv"
+    tools:context=".DetailScreen.ServiceRequestDetails">
+    <include layout="@layout/background_image" />
+    <ScrollView
+        style="@style/WH2">
+        <LinearLayout
+            android:layout_marginTop="80dp"
+            style="@style/llmv">
+            <LinearLayout
+                android:layout_gravity="center"
+                android:gravity="center"
+                style="@style/llmv">
+                <LinearLayout
+                    style="@style/llwh"
+                    android:layout_gravity="center">
+                    <LinearLayout
+                        style="@style/llwv"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:layout_marginTop="-5dp"
+                            android:text="Request Id"
+                            style="@style/DetailsText"/>
+                        <TextView
+                            style="@style/DetailsText"
+                            android:text="Merchant Id" />
+                        <TextView
+                            android:id="@+id/textrequesttype"
+                            style="@style/DetailsText"
+                            android:text="Request Type" />
+                        <TextView
+                            android:id="@+id/textrequestdesc"
+                            android:text="Request Description"
+                            style="@style/DetailsText"/>
+                        <TextView
+                            android:id="@+id/textsteps"
+                            android:text="Steps to Reproduce"
+                            style="@style/DetailsText"/>
+                        <TextView
+                            android:id="@+id/texterror"
+                            android:text="Error Message"
+                            style="@style/DetailsText"/>
+                        <TextView
+                            android:id="@+id/textpriority"
+                            android:text="Priority"
+                            style="@style/DetailsText"/>
+                        <TextView
+                            android:id="@+id/textemail"
+                            android:text="Contact Email"
+                            style="@style/DetailsText"/>
+                        <TextView
+                            android:id="@+id/textmobilenumber"
+                            android:text="Contact Phone"
+                            style="@style/DetailsText"/>
+                        <TextView
+                            android:text="Additional Notes"
+                            style="@style/DetailsText"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/llwv"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center">
+                        <EditText
+                            android:enabled="false"
+                            android:id="@+id/editReqId"
+                            style="@style/UDedtext"/>
+                        <EditText
+                            android:enabled="false"
+                            android:id="@+id/editMerId"
+                            style="@style/UDedtext"/>
+                        <EditText
+                            android:hint="Enter Request Type"
+                            android:id="@+id/editReqType"
+                            android:digits="@string/alphanumeric"
+                            style="@style/UDedtext"/>
+                        <EditText
+                            android:id="@+id/editReqDesc"
+                            android:hint="Enter Description"
+                            style="@style/UDedtext" />
+                        <EditText
+                            android:digits="@string/AlphaNumeric"
+                            android:hint="Enter Steps"
+                            android:id="@+id/editReproduce"
+                            style="@style/UDedtext" />
+                        <EditText
+                            android:digits="@string/AlphaNumeric"
+                            android:id="@+id/editErrMsg"
+                            android:hint="Enter Error Message"
+                            style="@style/UDedtext"/>
+                        <EditText
+                            android:editable="false"
+                            android:focusable="false"
+                            android:digits="@string/AlphaNumeric"
+                            android:id="@+id/editPriority"
+                            android:hint="SELECT"
+                            android:textColorHint="@color/lightgrey"
+                            style="@style/UDedtext" />
+                        <EditText
+                            android:id="@+id/editEmail"
+                            android:hint="Enter Email"
+                            style="@style/UDedtext"/>
+                        <LinearLayout
+                            android:layout_width="300dp"
+                            android:layout_height="50dp"
+                            android:orientation="horizontal">
+                            <com.hbb20.CountryCodePicker
+                                android:id="@+id/country_code1"
+                                android:background="@drawable/textfiled_background"
+                                android:layout_width="90dp"
+                                android:layout_height="40dp"
+                                app:ccp_autoDetectCountry="false"
+                                app:ccp_showFlag="false"
+                                app:ccp_showNameCode="false"
+                                app:ccp_contentColor="@color/white"
+                                app:ccpDialog_textColor="@color/black"
+                                app:ccp_arrowColor="@color/white"
+                                app:ccp_showFullName="false" />
+                            <EditText
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:paddingLeft="10dp"
+                                android:id="@+id/editPhone"
+                                android:digits="@string/Numeric"
+                                android:textColor="@color/white"
+                                android:layout_width="200dp"
+                                android:maxLength="10"
+                                android:layout_height="40dp"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:inputType="number"
+                                android:hint="Enter Mobile Number"
+                                android:textColorHint="@color/lightgrey"
+                                android:background="@drawable/textfiled_background"
+                                />
+                        </LinearLayout>
+                        <EditText
+                            android:id="@+id/editAddNotes"
+                            android:textColor="@color/white"
+                            style="@style/UDedtext"
+                            android:hint="Enter Additional Notes"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+                <Button
+                    android:layout_gravity="center"
+                    android:id="@+id/requestBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Request"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

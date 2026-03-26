@@ -1,0 +1,129 @@
+<resources>
+    <string name="app_name">Baroda QR Payment</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="forget_password"><u>Forget Password?</u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Failed">Something Went Wrong at Server End</string>
+
+    <string-array name="chargeback_options">
+        <item>PENDING</item>
+        <item>REVERTED</item>
+        <item>ALL</item>
+        <item>INITIATE</item>
+    </string-array>
+
+    <string name="AlphaNumeric">ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 </string>
+    <string name="Alpha">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="alphanumeric">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</string>
+    <string name="Numeric">0123456789</string>
+    <string name="billDigits">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/-</string>
+
+    <!--Admin List-->
+    <string name="admin">ADMIN OPERATIONS</string>
+    <string name="user_list">USER MANAGEMENT</string>
+    <string name="device_list">DEVICE MANAGEMENT</string>
+    <string name="customer_transaction_list">CUSTOMER TRANSACTION - </string>
+    <string name="fees_list">FEES AND CHARGES - </string>
+    <string name="alert_list">ALERTS</string>
+    <string name="notification_list">NOTIFICATIONS</string>
+    <string name="service_list">SERVICE REQUEST</string>
+    <string name="pending_charge_back_transaction">PENDING CHARGE BACK TRANSACTION</string>
+    <string name="reverted_charge_back_transaction">REVERTED CHARGE BACK TRANSACTION</string>
+    <string name="all_charge_back_transaction">ALL CHARGE BACK TRANSACTION</string>
+    <string name="charge_back_transaction">CHARGE BACK TRANSACTION</string>
+
+
+    <string name="ver_dev_det">VERIFY DEVICE DETAILS</string>
+    <string name="upd_dev_det">UPDATE DEVICE DETAILS</string>
+    <string name="add_dev_det">ADD DEVICE DETAILS</string>
+    <string name="view_dev_det">VIEW DEVICE DETAILS</string>
+
+    <string name="ver_user_det">VERIFY USER DETAILS</string>
+    <string name="upd_user_det">UPDATE USER DETAILS</string>
+    <string name="add_user_det">ADD USER DETAILS</string>
+    <string name="view_user_det">VIEW USER DETAILS</string>
+
+
+    <string name="act">ACTIVE</string>
+    <string name="inactive">INACTIVE</string>
+    <string name="pro_suc">Proceeded Successfully</string>
+
+    <string name="stc_qr">STATIC QR CODE</string>
+    <string name="dym_qr">DYNAMIC QR CODE</string>
+    <string name="sc_qr">SCAN QR CODE</string>
+    <string name="cb_det">CHARGE BACK DETAILS</string>
+    <string name="ct_det">CUSTOMER TRANSACTION DETAILS</string>
+    <string name="fee_det">FEES AND CHARGES DETAILS</string>
+    <string name="notify_det">NOTIFICATIONS DETAILS</string>
+    <string name="ser_req_det">SERVICE REQUEST DETAILS</string>
+    <string name="tran_det">TRANSACTION DETAILS</string>
+    <string name="init_pay">INITIATE PAYMENT</string>
+    <string name="sc_lock">SCREEN LOCK</string>
+    <string name="forget_password_header">FORGET PASSWORD</string>
+    <string name="otp_verify">OTP VERIFICATION</string>
+    <string name="faq">FAQ</string>
+    <string name="chg_password">CHANGE PASSWORD</string>
+
+    <string name="two_fac_top_desc">( PLEASE ANSWER AT LEAST THREE SECURITY QUESTIONS TO PROCEED )</string>
+    <string name="help_text">Help</string>
+    <string name="select">Select</string>
+    <string name="call">Call</string>
+    <string name="email">Email</string>
+
+
+    <string name="TranInquiry">Transaction Inquiries</string>
+    <string name="TranStatement">Transaction Statement</string>
+
+    <string name="TranHistory">Transaction History</string>
+    <string name="userProfile">User Profile</string>
+    <string name="FAQ">FAQ</string>
+    <string name="changePassword">Change Password</string>
+    <string name="screenLock">Screen Lock</string>
+    <string name="Poster">Poster</string>
+    <string name="Logout">Logout</string>
+
+
+    <string name="high">HIGH</string>
+    <string name="medium">MEDIUM</string>
+    <string name="low">LOW</string>
+
+    <string name="fiveSec">5 sec</string>
+    <string name="tenSec">10 sec</string>
+    <string name="thirtySec">30 sec</string>
+    <string name="oneMin">1 minute</string>
+    <string name="fiveMin">5 minutes</string>
+    <string name="thirtyMin">30 minutes</string>
+    <string name="oneHr">1 hour</string>
+    <string name="twoHr">2 hours</string>
+
+    <string name="all">All</string>
+    <string name="unit">Unit</string>
+    <string name="user">User</string>
+    <string name="device">Device</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="colan">: %1$s</string>
+    <string name="repId">Representative Id</string>
+    <string name="repName">Representative Name</string>
+    <string name="userId">User Id</string>
+    <string name="userName">User Name</string>
+    <string name="displayAmount">BWP: %1$s</string>
+
+    <string name="welcome"> WELCOME TO MERCHANT APPLICATION</string>
+    <string name="welcomeMobile">WELCOME TO</string>
+    <string name="merchantMobile">MERCHANT APPLICATION</string>
+
+    <string name="qr_code_expiry">QR Code Expires in : %1$s</string>
+    <string name="payload">01</string>
+    <string name="poi">11</string>
+    <string name="global">me.bornfire</string>
+    <string name="payee">BARBBWGUXXX</string>
+    <string name="BW">BW</string>
+    <string name="BWP">BWP</string>
+
+
+</resources>

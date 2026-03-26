@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LoginSignUp1Input">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@drawable/back4</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/button_white</item>
+        <item name="android:textColorHint">#E0E0E0</item>
+    </style>
+    <style name="LoginSignUpInput2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@drawable/back4</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/button_white</item>
+        <item name="android:textColorHint">#E0E0E0</item>
+    </style>
+    <style name="LoginSignUp2Input">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/back5</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="LoginSignUp2Input2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:background">@drawable/back5</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="TransparentProgressDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="CustomFontStyle">
+        <item name="android:fontFamily">@font/font1</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- No action bar -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="MAtab">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    <style name="MAmobtext" parent="MAtab">
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="DetailsText" parent="MAtab">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_marginTop">24dp</item>
+    </style>
+    <style name="WH1">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="WH2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="WH3">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="WH4">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="MAgrid" parent="WH2">
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:numColumns">3</item>
+    </style>
+    <style name="MAnavigation" parent="WH3">
+        <item name="android:layout_gravity">start</item>
+    </style>
+    <style name="MAweltext" parent="WH1">
+        <item name="android:text">WELCOME TO MERCHANT APPLICATION!</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="MAproimg">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    <style name="UDtext" parent="WH1">
+        <item name="android:layout_gravity">start</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="UDedtext" parent="WH1">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/textfiled_background</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:textColor">@color/lightgrey</item>
+        <item name="android:maxLength">30</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:textColorHint">@color/lightgrey</item>
+    </style>
+    <style name="UDicon" parent="WH1">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="UDbtn" parent="WH1">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+    //Linear Layout Vertical
+    <style name="llmv" parent="WH2">
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="llwv" parent="WH1">
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="llwh" parent="WH1">
+        <item name="android:orientation">horizontal</item>
+    </style>
+</resources>

@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item1"
+        android:title="@string/all" />
+    <item
+        android:id="@+id/item2"
+        android:title="@string/unit" />
+    <item
+        android:id="@+id/item3"
+        android:title="@string/user" />
+    <item
+        android:id="@+id/item4"
+        android:title="@string/device" />
+</menu>

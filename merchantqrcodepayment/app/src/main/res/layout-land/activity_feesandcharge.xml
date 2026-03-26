@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".AdminScreens.FeesAndCharge">
+    <include layout="@layout/background_image" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/backBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/back_btn_ic" />
+                    <TextView
+                        android:id="@+id/headertext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text="@string/fees_list"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="20dp"/>
+                    <EditText
+                        android:editable="false"
+                        android:focusable="false"
+                        android:id="@+id/cur_date"
+                        android:layout_height="30dp"
+                        android:layout_width="150dp"
+                        android:maxLines="1"
+                        android:paddingEnd="10dp"
+                        android:singleLine="true"
+                        android:paddingStart="10dp"
+                        android:hint="- DATE"
+                        android:visibility="visible"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:background="@color/transparent_background"
+                        android:drawableEnd="@drawable/ic_calender"
+                        android:drawablePadding="10dp"/>
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/pdf_dwn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/file_download"/>
+                <FrameLayout
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/fcSearch"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="80dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:layout_marginRight="20dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:id="@+id/editFilter"
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:hint="Search"
+                        android:textColor="@color/white"
+                        android:maxLines="1"
+                        android:textColorHint="@color/white"                            android:background="@drawable/textfiled_background"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="40dp" />
+
+                </FrameLayout>
+                <ImageView
+                    android:id="@+id/fc_help_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_help"/>
+            </RelativeLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/emptyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawableLeft="@android:drawable/stat_sys_warning"
+        android:text="No records available"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:visibility="gone" />
+</RelativeLayout>

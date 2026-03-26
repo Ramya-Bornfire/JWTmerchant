@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AdminScreens.Usermanagement">
+    <include layout="@layout/background_image" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/backBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:src="@drawable/back_btn_ic"></ImageView>
+
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="User Management"
+                        android:textSize = "15dp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:layout_marginRight="20dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:id="@+id/editFilter"
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
+                        android:hint="Search"
+                        android:textColor="@color/white"
+                        android:maxLines="1"
+                        android:textColorHint="@color/white"                            android:background="@drawable/textfiled_background"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="40dp" /> <!-- Adjust padding as needed -->
+
+                    <ImageView
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="15dp"
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:src="@drawable/search_ic"
+                        android:padding="8dp"
+                        android:clickable="true" />
+                </FrameLayout>
+                <!--
+                                    <EditText
+                                        android:layout_marginRight="20dp"
+                                        android:paddingLeft="10dp"
+                                        android:paddingRight="10dp"
+                                        android:hint="Search"
+                                        android:textColorHint="@color/white"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_width="200dp"
+                                        android:layout_height="30dp"
+                                        android:id="@+id/editFilter"
+                                        android:textColor="@color/white"
+                                        android:maxLines="1"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/textfiled_background"
+                                        ></EditText>
+                -->
+
+                <Button
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp"
+                    android:id="@+id/addBtn"
+                    android:text="Add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    ></Button>
+
+            </LinearLayout>
+            <!-- Header Row -->
+            <TableRow
+                android:visibility="gone"
+                android:background="@color/liteOrange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="User ID"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:text="User Name"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    />
+
+                <TextView
+                    android:gravity="center"
+                    android:text="Default Device ID"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    />
+
+                <TextView
+                    android:gravity="center"
+                    android:text="Device ID 1"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    />
+                <TextView
+                    android:gravity="center"
+                    android:text="Device ID 2"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    />
+                <TextView
+                    android:gravity="center"
+                    android:text="Select"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"/>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+    <TextView
+        android:id="@+id/emptyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawableLeft="@android:drawable/stat_sys_warning"
+        android:text=" No data Found in list"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:visibility="visible"/>
+</RelativeLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:text="Select a custom date of your choice"
+        android:textColor="@color/black"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/tran_from_date"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/textfiled_background"
+                android:editable="false"
+                android:focusable="false"
+                android:inputType="date"
+                android:paddingStart="10dp"
+                android:hint="from date"
+                android:textColor="@color/black"
+                android:textColorHint="@color/darkgrey"/>
+            <EditText
+                android:id="@+id/tran_to_date"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="@drawable/textfiled_background"
+                android:editable="false"
+                android:focusable="false"
+                android:inputType="date"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:hint="to date"
+                android:textColorHint="@color/darkgrey"/>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+    <Button
+        android:id="@+id/gen_pdf"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:text="GET PDF"/>
+    <Button
+        android:id="@+id/gen_excel"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get excel"/>
+    </LinearLayout>
+</LinearLayout>

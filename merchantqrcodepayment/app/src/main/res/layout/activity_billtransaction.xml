@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="left"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
+   >
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/banklogo"
+            />
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:text="Bank of Baroda"></TextView>
+        <ImageView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <TextView
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Merchant Details"></TextView>
+        <ImageView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:id="@+id/merchantidtext"
+            android:text="Merchant ID"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/merchantNametext"
+            android:text="Merchant Name"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:id="@+id/counterNametext"
+            android:text="Counter Name"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:id="@+id/addresstext"
+            android:text="Address"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:id="@+id/contactnumbertext"
+            android:text="Contact No"></TextView>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:id="@+id/emailidtext"
+            android:text="Email Address"/>
+
+        <ImageView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <TextView
+            android:layout_gravity="center"
+            android:textStyle="normal"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transaction Details"></TextView>
+        <ImageView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:id="@+id/billtext"
+            android:text="Bill No"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:id="@+id/receipttext"
+            android:text="Receipt No"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:id="@+id/transactiondatetext"
+            android:textColor="@color/black"
+            android:text="Transaction Date And Time">
+
+        </TextView>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:id="@+id/tranamounttext"
+            android:text="Transaction amount">
+
+        </TextView>
+        <TextView
+            android:layout_gravity="left"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/transtatustext"
+            android:text="Transaction Status"></TextView>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:id="@+id/referencetext"
+            android:textColor="@color/black"
+            android:text="Reference number "/>
+
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:text="Payment method -QR Code"/>
+
+        <ImageView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:text="Signature (Optional)"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:text="Receipt to be generated as Merchant and Customer copy"/>
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="Thank You"/>
+        <Button
+            android:layout_gravity="center"
+            android:id="@+id/printScreenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="print"/>
+        <Button
+            android:id="@+id/cancelScreenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
+
+    </LinearLayout>
+</ScrollView>
+</RelativeLayout>

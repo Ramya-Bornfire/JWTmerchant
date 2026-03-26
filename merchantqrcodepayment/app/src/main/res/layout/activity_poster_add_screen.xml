@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PosterAddScreen">
+
+    <include layout="@layout/background_image" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Merchant ID"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                ></TextView>
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Merchant Rep Id"
+                android:textColor="@color/white"
+                android:textSize="15dp"></TextView>
+            <TextView
+                android:layout_gravity="start"
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unit Id"
+                android:textColor="@color/white"
+                android:textSize="15dp"></TextView>
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Poster Id"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                ></TextView>
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Poster Date"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                ></TextView>
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time Lapse"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                ></TextView>
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From Date"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                ></TextView>
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To Date"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                ></TextView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:paddingLeft="10dp"
+                android:id="@+id/merId"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:inputType="textCapCharacters"
+                android:layout_height="40dp"
+                android:background="@drawable/textfiled_background"
+                ></EditText>
+
+            <EditText
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/merRepId"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:inputType="text"
+                android:layout_height="40dp"
+                android:background="@drawable/textfiled_background"
+                ></EditText>
+            <EditText
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/unitId"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:inputType="text"
+                android:layout_height="40dp"
+                android:background="@drawable/textfiled_background"
+                ></EditText>
+
+            <EditText
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/posterId"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:inputType="text"
+                android:layout_height="40dp"
+                android:background="@drawable/textfiled_background"
+                ></EditText>
+
+            <EditText
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/posterDate"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:layout_height="40dp"
+                android:background="@drawable/textfiled_background"
+                ></EditText>
+
+            <EditText
+                android:id="@+id/select"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:maxLines="1"
+                android:editable="false"
+                android:background="@drawable/textfiled_background"
+                android:textColor="@color/white"
+                android:drawableEnd="@drawable/ic_dropdown" />
+            <EditText
+                android:paddingLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/fromdate"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:editable="false"
+                android:background="@drawable/textfiled_background"
+                ></EditText>
+            <EditText
+                android:paddingLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/toDate"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:editable="false"
+                android:background="@drawable/textfiled_background"
+                ></EditText>
+        </LinearLayout>
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_gravity="start"
+                    android:layout_marginTop="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload Poster"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="70dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:background="@drawable/textfiled_background"
+                    android:id="@+id/uploadImg"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+                    <FrameLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/frameLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <!-- ImageView to display images -->
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:visibility="gone" />
+
+                        <!-- VideoView to display videos -->
+                        <VideoView
+                            android:id="@+id/videoView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="gone" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/uploadPoster"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload"></Button>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailScreen.ChargeBackDetailsActivity">
+
+    <include layout="@layout/background_image" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <!-- Tran Date -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tran Date"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:textSize="15dp"
+                    android:paddingLeft="10dp"
+                    android:id="@+id/editTranDate"
+                    android:textColor="@color/lightgrey"
+                    android:background="@drawable/textfiled_background"/>
+            </LinearLayout>
+
+            <!-- Message Id -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Message ID"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:paddingLeft="10dp"
+                    android:id="@+id/editMsgId"
+                    android:textSize="15dp"
+                    android:textColor="@color/lightgrey"
+                    android:background="@drawable/textfiled_background"/>
+            </LinearLayout>
+
+            <!-- Audit Ref -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Audit Ref"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:paddingLeft="10dp"
+                    android:textSize="15dp"
+                    android:id="@+id/editAuditRef"
+                    android:textColor="@color/lightgrey"
+                    android:background="@drawable/textfiled_background"/>
+            </LinearLayout>
+
+            <!-- Bill No -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bill Number"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:paddingLeft="10dp"
+                    android:id="@+id/editBillNo"
+                    android:textSize="15dp"
+                    android:textColor="@color/lightgrey"
+                    android:background="@drawable/textfiled_background"/>
+            </LinearLayout>
+
+            <!-- Bill Date -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bill Date"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:paddingLeft="10dp"
+                    android:id="@+id/editBillDate"
+                    android:textSize="15dp"
+                    android:textColor="@color/lightgrey"
+                    android:background="@drawable/textfiled_background"/>
+            </LinearLayout>
+
+            <!-- Crncy -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Currency"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:textSize="15dp"
+                    android:paddingLeft="10dp"
+                    android:id="@+id/Crncy"
+                    android:textColor="@color/lightgrey"
+                    android:background="@drawable/textfiled_background"/>
+            </LinearLayout>
+
+            <!-- Bill Amount -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bill Amount"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:paddingLeft="10dp"
+                    android:textSize="15dp"
+                    android:id="@+id/editBillAmount"
+                    android:textColor="@color/lightgrey"
+                    android:background="@drawable/textfiled_background"/>
+            </LinearLayout>
+
+            <!-- Approved BY -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Approved User"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:paddingLeft="10dp"
+                    android:textSize="15dp"
+                    android:id="@+id/aprby"
+                    android:textColor="@color/lightgrey"
+                    android:background="@drawable/textfiled_background"/>
+            </LinearLayout>
+            <!-- Approved Date -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Approved Date"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:paddingLeft="10dp"
+                    android:textSize="15dp"
+                    android:id="@+id/aprdate"
+                    android:textColor="@color/lightgrey"
+                    android:background="@drawable/textfiled_background"/>
+            </LinearLayout>
+            <!-- Remarks -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Remarks"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:paddingLeft="10dp"
+                    android:textSize="15dp"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:id="@+id/editRemarks"
+                    android:textColor="@color/lightgrey"
+                    android:background="@drawable/textfiled_background"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/submitbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_marginTop="16dp"
+                android:text="Revert"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

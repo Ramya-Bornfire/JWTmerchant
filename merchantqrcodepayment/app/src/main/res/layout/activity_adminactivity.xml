@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminScreens.AdminActivity">
+
+    <include layout="@layout/background_image" />
+
+    <GridView
+        android:id="@+id/adminMenu"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="0dp"
+        android:horizontalSpacing="0dp"
+        android:numColumns="2"
+        android:verticalSpacing="0dp" />
+
+</RelativeLayout>

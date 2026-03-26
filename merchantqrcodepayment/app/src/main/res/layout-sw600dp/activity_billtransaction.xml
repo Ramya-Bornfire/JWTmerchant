@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="left"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
+    android:layout_marginLeft="120dp">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="250dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:src="@drawable/banklogo"
+            />
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="40dp"
+            android:textColor="@color/black"
+            android:text="Bank of Baroda"/>
+        <ImageView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <TextView
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Merchant Details"/>
+        <ImageView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:id="@+id/merchantidtext"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="Merchant ID: M700"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:id="@+id/merchantNametext"
+            android:layout_marginLeft="20dp"
+            android:text="Merchant Name: Grand Mall"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:id="@+id/counterNametext"
+            android:textColor="@color/black"
+            android:text="Counter Number: 02"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:id="@+id/addresstext"
+            android:text="Address : Port Louis, Francis"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:id="@+id/contactnumbertext"
+            android:text="Contact No: 9878687678"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:id="@+id/emailidtext"
+            android:text="Email Address: nithya@gmail.com"/>
+
+        <ImageView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <TextView
+            android:layout_gravity="center"
+            android:textStyle="normal"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transaction Details"/>
+        <ImageView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:id="@+id/billtext"
+            android:text="Bill No: BILL09298"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:id="@+id/receipttext"
+            android:text="Receipt No: REP09298"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:id="@+id/transactiondatetext"
+            android:text="Transaction Date: 19-07-2024">
+
+        </TextView>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:id="@+id/tranamounttext"
+            android:layout_height="wrap_content"
+            android:text="Transaction amount: BWP 2">
+
+        </TextView>
+        <TextView
+            android:layout_gravity="left"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/transtatustext"
+            android:text="Transaction Status: SUCCESS"/>
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:id="@+id/referencetext"
+            android:textColor="@color/black"
+           android:text="Reference number:REF19072024033502"/>
+
+        <TextView
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="Payment method -QR Code"/>
+
+        <ImageView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:src="@drawable/dotted"
+            android:layerType="software" />
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:text="Signature (Optional)"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:text="Receipt to be generated as Merchant and Customer copy"/>
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="Thank You"/>
+        <Button
+            android:layout_gravity="center"
+            android:id="@+id/printScreenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="print"/>
+        <Button
+            android:id="@+id/cancelScreenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
+
+    </LinearLayout>
+</ScrollView>
+</RelativeLayout>

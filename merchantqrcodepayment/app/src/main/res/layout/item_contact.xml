@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="5dp">
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"
+            android:text="Title" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/phoneTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:layout_height="wrap_content"
+                android:text="Phone: 1234567890" />
+            <ImageView
+                android:id="@+id/callIcon"
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:layout_height="30dp"
+                android:src="@android:drawable/sym_action_call"
+                android:contentDescription="Call Icon"
+                 />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/faxTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="18dp"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:text="Fax: 9876543210" />
+            <ImageView
+                android:id="@+id/callFaxIcon"
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:layout_height="30dp"
+                android:src="@android:drawable/ic_menu_call"
+                android:contentDescription="Call Icon"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/emailTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:text="Email: bornfire@email.com" />
+            <ImageView
+                android:id="@+id/emailIcon"
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:layout_height="30dp"
+                android:src="@android:drawable/ic_dialog_email"
+                android:contentDescription="Email Icon"
+                 />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

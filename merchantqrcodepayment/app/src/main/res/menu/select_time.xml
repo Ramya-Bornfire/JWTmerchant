@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item1"
+        android:title="@string/fiveSec" />
+    <item
+        android:id="@+id/item2"
+        android:title="@string/tenSec" />
+    <item
+        android:id="@+id/item3"
+        android:title="@string/thirtySec" />
+    <item
+        android:id="@+id/item4"
+        android:title="@string/oneMin" />
+    <item
+        android:id="@+id/item5"
+        android:title="@string/fiveMin" />
+    <item
+        android:id="@+id/item6"
+        android:title="@string/thirtyMin" />
+    <item
+        android:id="@+id/item7"
+        android:title="@string/oneHr" />
+    <item
+        android:id="@+id/item8"
+        android:title="@string/twoHr" />
+</menu>
