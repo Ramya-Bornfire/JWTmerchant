@@ -14,7 +14,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
@@ -23,7 +22,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.annotation.RequiresApi
 import com.bornfire.merchantqrcode.AppMonitorService
 import com.bornfire.merchantqrcode.DataModel.*
 import com.bornfire.merchantqrcode.Dialog.AlertDialogBox
@@ -58,7 +56,6 @@ class LoginActivity : AppCompatActivity(){
     val objectMapper = jacksonObjectMapper()
     lateinit var imageServices:ImageView
 
-    @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_loginactivity)
@@ -74,7 +71,7 @@ class LoginActivity : AppCompatActivity(){
         imageServices = findViewById(R.id.image_services)
         imageServices.setOnClickListener{
             showResponseDialog(getAndroidId(this))
-         //logoutAndCloseApp()
+            //logoutAndCloseApp()
         }
         val isTablet = resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
         requestedOrientation = if (isTablet) {
@@ -118,10 +115,6 @@ class LoginActivity : AppCompatActivity(){
             Toast.makeText(this, "Rooted or Frida detected! Exiting...", Toast.LENGTH_LONG).show()
             finishAffinity() // Close app
         }
-        val deviceId = getAndroidId(this)
-        Log.d("DEBUG", "ANDROID_ID: $deviceId")
-
-
     }
     fun checkFridaFiles(): Boolean {
         val paths = arrayOf(
@@ -291,8 +284,15 @@ class LoginActivity : AppCompatActivity(){
     private fun loginAndroid(userId: String, password: String) {
         val loginTabData = LoginData(userId,password,getIPAddress(this).toString(),getAndroidId(this),"MOBILE",getOSVersion(),getAppVersion().toString())
         val jsonString = objectMapper.writeValueAsString(loginTabData)
-        val stableDeviceId = Encryption.getAndroidId(this@LoginActivity)
-        val psuDeviceID = Encryption.generatePSUDeviceId()
+        //val psuDeviceID = Encryption.generatePSUDeviceId()
+        //val psuDeviceID = AuthToken.getStableDeviceId(this)
+        var psuDeviceID = AuthToken.getPSUDeviceId(this)
+
+        if (psuDeviceID.isNullOrEmpty()) {
+            psuDeviceID = Encryption.generatePSUDeviceId()
+            AuthToken.savePSUDeviceId(this, psuDeviceID)
+        }
+
         val encryptedText = Encryption.encrypt(jsonString, psuDeviceID)
         val encryptedRequest = EncryptedRequest(encryptedstring = encryptedText)
         val call = ApiClient.apiService.loginAndroid(encryptedRequest, psuDeviceID)
@@ -301,41 +301,32 @@ class LoginActivity : AppCompatActivity(){
                 call: Call<ResponseBody>,
                 response: Response<ResponseBody>
             ) {
-                Log.d("LOGIN", "✅ API Response: ${response.code()}")
                 if (response.isSuccessful) {
                     try {
                         val loginEntityJsonString: String
                         val encryptedResponse = response.body()?.string()
-                        Log.d("LOGIN", "📥 RAW ENCRYPTED: $encryptedResponse")
                         if (encryptedResponse != null) {
-                           // val decryptedResponse = Encryption.decrypt(encryptedResponse, psuDeviceID)
-                            val decryptedResponse = tryDecrypt(encryptedResponse, psuDeviceID, stableDeviceId)
-                            Log.d("KEY_DEBUG", "PSU: $psuDeviceID | ANDROID: $stableDeviceId")
-
-                            Log.d("LOGIN", "🔓 RAW DECRYPTED: $decryptedResponse")
-                         //   println("Decrypted response: $decryptedResponse")
+                            val decryptedResponse =
+                                Encryption.decrypt(encryptedResponse, psuDeviceID)
+                            //   println("Decrypted response: $decryptedResponse")
                             val loginResponse = objectMapper.readValue(
                                 decryptedResponse,
                                 LoginforTabResponse::class.java
                             )
-                            val rootNode = objectMapper.readTree(decryptedResponse)
-                            val jwtToken = rootNode.get("token")?.asText()
-                            val status = rootNode.get("status")?.asText()
-                            val message = rootNode.get("message")?.asText()
+                            val jsonNode = objectMapper.readTree(decryptedResponse)
 
-                            Log.d("LOGIN", "📊 Parsed - Status: $status, Token: ${jwtToken?.take(20)}..., Message length: ${message?.length}")
-
+                            val token = jsonNode.get("token")?.asText()
+                            val dataNode = jsonNode.get("data")
                             if (loginResponse.status == "Success") {
-                                loginEntityJsonString = loginResponse.message
-                                val rootNode = objectMapper.readTree(decryptedResponse)
-                                val jwtToken = rootNode.get("token")?.asText()
 
-                                if (!jwtToken.isNullOrEmpty()) {
-                                    // ✅ Save with STABLE Android ID (not PSU)
-                                    val stableDeviceId = Encryption.getAndroidId(this@LoginActivity)
-                                    AuthToken.saveToken(this@LoginActivity, jwtToken, stableDeviceId)
-                                    Log.d("JWT", "💾 SAVED Token=${jwtToken.take(30)}..., Device=$stableDeviceId")
+                                val token = jsonNode.get("token")?.asText()
+
+                                if (!token.isNullOrEmpty()) {
+                                    AuthToken.saveToken(this@LoginActivity, token, psuDeviceID)
+                                    AuthToken.savePSUDeviceId(this@LoginActivity, psuDeviceID)
                                 }
+
+                                loginEntityJsonString = loginResponse.message
 
                                 if (loginEntityJsonString.contains("LoginEntity")) {
 
@@ -606,37 +597,22 @@ class LoginActivity : AppCompatActivity(){
                             }
                         }
                     } catch (e: Exception) {
-                     //   e.printStackTrace()
-                      //  println("Decryption failed: ${e.message}")
-                        Log.e("LOGIN", "💥 ERROR: ${e.message}", e)
+                        //   e.printStackTrace()
+                        //  println("Decryption failed: ${e.message}")
                     }
                 } else {
                     Toast.makeText(this@LoginActivity, "Error: "+response.message(), Toast.LENGTH_LONG).show()
-                   // println("Error: ${response.code()}")
-                    Log.e("LOGIN", "❌ HTTP ${response.code()}: ${response.message()}")
-                   // println("Response is not successful: ${response.errorBody()?.string()}")
+                    // println("Error: ${response.code()}")
+                    // println("Response is not successful: ${response.errorBody()?.string()}")
                 }
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-              //  t.printStackTrace()
+                //  t.printStackTrace()
                 showResponseDialog("Something Went Wrong at Server End")
-              //  println("API call failed: ${t.message}")
+                //  println("API call failed: ${t.message}")
             }
         })
-    }
-    private fun tryDecrypt(encrypted: String, psuKey: String, androidKey: String): String {
-        return try {
-            Encryption.decrypt(encrypted, psuKey)
-        } catch (e1: Exception) {
-            Log.w("DECRYPT", "PSU failed, trying AndroidID", e1)
-            try {
-                Encryption.decrypt(encrypted, androidKey)
-            } catch (e2: Exception) {
-                Log.e("DECRYPT", "BOTH failed!", e2)
-                throw Exception("Decryption failed - Key mismatch")
-            }
-        }
     }
     private fun checkDeviceId() {
         val call  = ApiClient.apiService.checkDeviceId(getAndroidId(this))
@@ -662,11 +638,11 @@ class LoginActivity : AppCompatActivity(){
                     }
                 } else {
                     Toast.makeText(this@LoginActivity, "Error: "+response.message(), Toast.LENGTH_LONG).show()
-                    println("Error: ${response.code()}")
+                    //    println("Error: ${response.code()}")
                 }
             }
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-              //  println("Network error: ${t.message}")
+                //  println("Network error: ${t.message}")
                 Toast.makeText(this@LoginActivity,"Something Went Wrong at Server End",Toast.LENGTH_LONG).show()
             }
         })
@@ -692,12 +668,12 @@ class LoginActivity : AppCompatActivity(){
     }
     private fun validation() {
         if (userId.length() == 0) {
-        //    println("Please enter the user id")
+            //    println("Please enter the user id")
             userId.error = "Enter user Id"
             return
         }
         if (password.length() == 0) {
-          //  println("Enter the password")
+            //  println("Enter the password")
             password.error = "Enter password"
             return
         }
@@ -727,7 +703,7 @@ class LoginActivity : AppCompatActivity(){
                     val encryptedResponse = response.body()?.string()
                     if (encryptedResponse != null) {
                         val decryptedResponse = Encryption.decrypt(encryptedResponse, psuDeviceID)
-                    //    println("Decrypted response: $decryptedResponse")
+                        //    println("Decrypted response: $decryptedResponse")
                         val objectMapper = jacksonObjectMapper()
                         val loginResponse = objectMapper.readValue(
                             decryptedResponse,
@@ -748,15 +724,15 @@ class LoginActivity : AppCompatActivity(){
                         }
                         nextScreen(mobileNumber.toString(), otp.toString(), merchantId)
                     }
-              }
+                }
                 else {
                     NetworkUtils.hideProgress(this@LoginActivity)
-                //    println("Error: ${response.code()}")
+                    //    println("Error: ${response.code()}")
                     Toast.makeText(this@LoginActivity,"Invalid User",Toast.LENGTH_LONG).show()
                 }
             }
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-               // t.printStackTrace()
+                // t.printStackTrace()
                 Toast.makeText(this@LoginActivity,"Something Went Wrong at Server End",Toast.LENGTH_LONG).show()
 
 
@@ -788,7 +764,7 @@ class LoginActivity : AppCompatActivity(){
             otpAndroid(empId)
         }
         builder.setNegativeButton("OK") { dialogInterface: DialogInterface, _: Int ->
-          dialogInterface.dismiss()
+            dialogInterface.dismiss()
         }
         builder.create().show()
     }
@@ -804,7 +780,7 @@ class LoginActivity : AppCompatActivity(){
             }
             Pair(versionName, versionCode)
         } catch (e: PackageManager.NameNotFoundException) {
-          //  e.printStackTrace()
+            //  e.printStackTrace()
             Pair(null, null)
         }
     }

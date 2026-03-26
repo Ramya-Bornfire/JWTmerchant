@@ -19,17 +19,16 @@ class AuthInterceptor(private val context: Context) : Interceptor {
 
         val requestBuilder = original.newBuilder()
 
-        if (!deviceId.isNullOrEmpty()) {
-            requestBuilder.header("PSU_Device_ID", deviceId)
-        } else {
-            Log.e("AUTH", "❌ NO DEVICE ID - Cannot proceed")
-        }
 
         if (!token.isNullOrEmpty()) {
             requestBuilder.header("Authorization", "Bearer $token")
         } else {
             Log.w("AUTH", "⚠️ No token - Public endpoint?")
         }
+        if (!deviceId.isNullOrEmpty()) {
+            requestBuilder.header("Device-Id", deviceId)
+        }
+
 
         val request = requestBuilder.build()
         val response = chain.proceed(request)

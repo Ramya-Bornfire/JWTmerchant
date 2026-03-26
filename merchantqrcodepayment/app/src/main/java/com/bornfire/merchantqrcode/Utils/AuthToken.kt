@@ -97,6 +97,33 @@ object AuthToken {
             null
         }
     }
+    private const val PSU_DEVICE_ID_KEY = "PSU_DEVICE_ID"
+
+    fun savePSUDeviceId(context: Context, psuDeviceID: String) {
+        val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
+        val sharedPrefs = EncryptedSharedPreferences.create(
+            PREF_FILE,
+            masterKeyAlias,
+            context,
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+        )
+
+        sharedPrefs.edit().putString(PSU_DEVICE_ID_KEY, psuDeviceID).apply()
+    }
+
+    fun getPSUDeviceId(context: Context): String? {
+        val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
+        val sharedPrefs = EncryptedSharedPreferences.create(
+            PREF_FILE,
+            masterKeyAlias,
+            context,
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+        )
+
+        return sharedPrefs.getString(PSU_DEVICE_ID_KEY, null)
+    }
 
     // ✅ Clear everything
     fun clearToken(context: Context) {

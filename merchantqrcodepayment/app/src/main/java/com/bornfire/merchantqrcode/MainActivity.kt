@@ -26,6 +26,7 @@ import com.bornfire.merchantqrcode.AdminScreens.AdminActivity
 import com.bornfire.merchantqrcode.AdminScreens.Chargebacks
 import com.bornfire.merchantqrcode.DataModel.*
 import com.bornfire.merchantqrcode.Receiver.NetworkChangeReceiver
+import com.bornfire.merchantqrcode.Utils.AuthToken
 import com.bornfire.merchantqrcode.Utils.LogoutClass
 import com.bornfire.merchantqrcode.Utils.NullCheck
 import com.bornfire.merchantqrcode.Utils.TextforTable.formatNumberWithGroups
@@ -461,7 +462,8 @@ class MainActivity : BaseActivity() {
     private fun generateStaticMerQR() {
         val pId =  Encryption.generatePID()
         val referenceNumber=pId+ getRandom4Digit()
-        val psuDeviceId=Encryption.generatePSUDeviceId()
+        //val psuDeviceId=Encryption.generatePSUDeviceId()
+        val psuDeviceId = AuthToken.getPSUDeviceId(this)!!
         val psuIpAddress=Encryption.getPSUIPADDRESS()
         val psuId=Encryption.generatePSUID(this)
         val code = ScanQRrequest("00020101021226670009mu01120215CIM2394871283740315CIM24032118660452045811530348054035505802MU5911MARINA MALL6010PORT LOUIS62170205234240704 242630405AF")
