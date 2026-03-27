@@ -313,13 +313,9 @@ class LoginActivity : AppCompatActivity(){
                                 decryptedResponse,
                                 LoginforTabResponse::class.java
                             )
-                            val jsonNode = objectMapper.readTree(decryptedResponse)
-
-                            val token = jsonNode.get("token")?.asText()
-                            val dataNode = jsonNode.get("data")
                             if (loginResponse.status == "Success") {
 
-                                val token = jsonNode.get("token")?.asText()
+                                val token = loginResponse.token
 
                                 if (!token.isNullOrEmpty()) {
                                     AuthToken.saveToken(this@LoginActivity, token, psuDeviceID)
