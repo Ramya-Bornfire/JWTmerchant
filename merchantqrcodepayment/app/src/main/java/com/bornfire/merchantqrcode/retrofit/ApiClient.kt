@@ -37,7 +37,7 @@ object ApiClient {
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .addInterceptor(AuthInterceptor(appContext))
-            //.certificatePinner(certificatePinner) // Apply SSL Pinning
+            .certificatePinner(certificatePinner) // Apply SSL Pinning
             .build()
     }
 

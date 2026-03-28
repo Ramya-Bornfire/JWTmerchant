@@ -70,9 +70,6 @@ object Encryption {
     }
     fun encrypt(unencryptedString: String, psuDeviceID: String): String {
         return try {
-            Log.d("ENCRYPT", "🔑 Encrypt Key: ${psuDeviceID.take(8)}...")
-            Log.d("ENCRYPT", "📤 Plain: ${unencryptedString.take(50)}...")
-
             val arrayBytes = fixKeyLength(psuDeviceID.toByteArray(StandardCharsets.UTF_8))
             val ks: KeySpec = DESedeKeySpec(arrayBytes)
             val skf: SecretKeyFactory = SecretKeyFactory.getInstance("DESede")
@@ -90,9 +87,6 @@ object Encryption {
 
     fun decrypt(encryptedString: String, psuDeviceID: String): String {
         return try {
-            System.out.println("🔑 DECRYPT DEBUG - Key: " + psuDeviceID.substring(0, 8) + "...");
-            System.out.println("🔑 Encrypted: " + encryptedString.substring(0, 50) + "...");
-
             val arrayBytes = fixKeyLength(psuDeviceID.toByteArray(StandardCharsets.UTF_8))
             val ks: KeySpec = DESedeKeySpec(arrayBytes)
             val skf: SecretKeyFactory = SecretKeyFactory.getInstance("DESede")
