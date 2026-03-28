@@ -11,57 +11,24 @@ object AuthToken {
 
     private const val PREF_FILE = "secure_prefs"
     private const val TOKEN_KEY = "JWT_TOKEN"
-    private const val DEVICE_ID_KEY = "STABLE_DEVICE_ID"  // ✅ Stable Android ID
+    private const val DEVICE_ID_KEY = "STABLE_DEVICE_ID"
 
     private var tokenInMemory: String? = null
     private var deviceIdInMemory: String? = null
 
-    // ✅ FIXED: Use ANDROID_ID as stable device identifier (NEVER CHANGES)
+    //  FIXED: Use ANDROID_ID as stable device identifier (NEVER CHANGES)
     fun getStableDeviceId(context: Context): String {
         return Encryption.getAndroidId(context)
     }
-
-    // ✅ COMPLETE saveToken - handles both dynamic PSU_ID and stable Device ID
-    fun saveToken(context: Context, token: String, psuDeviceID: String) {
-        try {
-            tokenInMemory = token
-
-            // ✅ CRITICAL: Use STABLE Android ID for JWT validation (not changing UUID)
-            val stableDeviceId = getStableDeviceId(context)
-            deviceIdInMemory = stableDeviceId
-
-            Log.d("AUTH", "💾 Saving Token + STABLE DeviceID: $stableDeviceId (PSU: ${psuDeviceID.take(8)}...)")
-
-            val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
-            val sharedPrefs = EncryptedSharedPreferences.create(
-                PREF_FILE,
-                masterKeyAlias,
-                context,
-                EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-                EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-            )
-
-            sharedPrefs.edit()
-                .putString(TOKEN_KEY, token)
-                .putString(DEVICE_ID_KEY, stableDeviceId)  // ✅ SAVE STABLE ID for interceptor
-                .apply()
-
-            Log.d("AUTH", "✅ Token + Stable DeviceID saved successfully")
-        } catch (e: Exception) {
-            Log.e("AUTH", "❌ Error saving token", e)
-        }
-    }
-
-    // ✅ getToken - memory cache + secure storage
     fun getToken(context: Context): String? {
-        return try {
-            // ✅ Fast memory cache
-            tokenInMemory?.let {
-                Log.d("AUTH", "⚡ Token from memory (${it.length} chars)")
-                return it
+        try {
+            // Check memory cache first
+            if (!tokenInMemory.isNullOrEmpty()) {
+                Log.d("AUTH", "⚡ Token from memory (${tokenInMemory?.length} chars)")
+                return tokenInMemory
             }
 
-            // ✅ Secure storage fallback
+            // Load from secure storage
             val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
             val sharedPrefs = EncryptedSharedPreferences.create(
                 PREF_FILE, masterKeyAlias, context,
@@ -70,15 +37,22 @@ object AuthToken {
             )
 
             tokenInMemory = sharedPrefs.getString(TOKEN_KEY, null)
-            Log.d("AUTH", "📦 Token loaded: ${tokenInMemory?.length ?: 0} chars")
-            tokenInMemory
+
+            if (!tokenInMemory.isNullOrEmpty()) {
+                Log.d("AUTH", "📦 Token loaded from storage: ${tokenInMemory?.length} chars")
+                Log.d("AUTH", "📦 Token preview: ${tokenInMemory?.take(50)}...")
+            } else {
+                Log.w("AUTH", "⚠️ No token found in storage")
+            }
+
+            return tokenInMemory
         } catch (e: Exception) {
             Log.e("AUTH", "❌ Error getting token", e)
-            null
+            return null
         }
     }
 
-    // ✅ getDeviceId - ALWAYS returns STABLE Android ID for interceptor
+    //  getDeviceId - ALWAYS returns STABLE Android ID for interceptor
     fun getDeviceId(context: Context): String? {
         return try {
             // ✅ Fast memory cache
@@ -97,35 +71,8 @@ object AuthToken {
             null
         }
     }
-    private const val PSU_DEVICE_ID_KEY = "PSU_DEVICE_ID"
 
-    fun savePSUDeviceId(context: Context, psuDeviceID: String) {
-        val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
-        val sharedPrefs = EncryptedSharedPreferences.create(
-            PREF_FILE,
-            masterKeyAlias,
-            context,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
-
-        sharedPrefs.edit().putString(PSU_DEVICE_ID_KEY, psuDeviceID).apply()
-    }
-
-    fun getPSUDeviceId(context: Context): String? {
-        val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
-        val sharedPrefs = EncryptedSharedPreferences.create(
-            PREF_FILE,
-            masterKeyAlias,
-            context,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
-
-        return sharedPrefs.getString(PSU_DEVICE_ID_KEY, null)
-    }
-
-    // ✅ Clear everything
+    //  Clear everything
     fun clearToken(context: Context) {
         try {
             Log.d("AUTH", "🗑️ Clearing Token + DeviceID")
@@ -157,8 +104,4 @@ object AuthToken {
         return loggedIn
     }
 
-    // ✅ Real Android ID (for debugging)
-    fun getRealDeviceId(context: Context): String {
-        return Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
-    }
 }

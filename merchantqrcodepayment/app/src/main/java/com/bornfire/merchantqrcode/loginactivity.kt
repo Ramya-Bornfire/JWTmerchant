@@ -26,7 +26,6 @@ import com.bornfire.merchantqrcode.AppMonitorService
 import com.bornfire.merchantqrcode.DataModel.*
 import com.bornfire.merchantqrcode.Dialog.AlertDialogBox
 import com.bornfire.merchantqrcode.Service.StaticSoundBoxService
-import com.bornfire.merchantqrcode.Utils.AuthToken
 import com.bornfire.merchantqrcode.Utils.LoginSessionHandling.getIPAddress
 import com.bornfire.merchantqrcode.Utils.LoginSessionHandling.getOSVersion
 import com.bornfire.merchantqrcode.Utils.NullCheck
@@ -284,15 +283,7 @@ class LoginActivity : AppCompatActivity(){
     private fun loginAndroid(userId: String, password: String) {
         val loginTabData = LoginData(userId,password,getIPAddress(this).toString(),getAndroidId(this),"MOBILE",getOSVersion(),getAppVersion().toString())
         val jsonString = objectMapper.writeValueAsString(loginTabData)
-        //val psuDeviceID = Encryption.generatePSUDeviceId()
-        //val psuDeviceID = AuthToken.getStableDeviceId(this)
-        var psuDeviceID = AuthToken.getPSUDeviceId(this)
-
-        if (psuDeviceID.isNullOrEmpty()) {
-            psuDeviceID = Encryption.generatePSUDeviceId()
-            AuthToken.savePSUDeviceId(this, psuDeviceID)
-        }
-
+        val psuDeviceID = Encryption.generatePSUDeviceId()
         val encryptedText = Encryption.encrypt(jsonString, psuDeviceID)
         val encryptedRequest = EncryptedRequest(encryptedstring = encryptedText)
         val call = ApiClient.apiService.loginAndroid(encryptedRequest, psuDeviceID)
@@ -314,16 +305,12 @@ class LoginActivity : AppCompatActivity(){
                                 LoginforTabResponse::class.java
                             )
                             if (loginResponse.status == "Success") {
-
-                                val token = loginResponse.token
-
-                                if (!token.isNullOrEmpty()) {
-                                    AuthToken.saveToken(this@LoginActivity, token, psuDeviceID)
-                                    AuthToken.savePSUDeviceId(this@LoginActivity, psuDeviceID)
+                                val sharedPref = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+                                with(sharedPref.edit()) {
+                                    putString("jwt_token", loginResponse.token)
+                                    apply()
                                 }
-
                                 loginEntityJsonString = loginResponse.message
-
                                 if (loginEntityJsonString.contains("LoginEntity")) {
 
                                     val messageParts = loginEntityJsonString.split(",")

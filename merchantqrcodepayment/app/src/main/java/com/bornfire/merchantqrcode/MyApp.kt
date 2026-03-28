@@ -24,10 +24,10 @@ class MyApp : Application() {
         super.onCreate()
         ApiClient.init(this)
         if (AuthToken.isLoggedIn(this)) {
-            Log.d("MyApp", "✅ Valid JWT found: ${AuthToken.getToken(this)?.length ?: 0} chars")
-            Log.d("MyApp", "✅ DeviceID: ${AuthToken.getDeviceId(this)}")
+            Log.d("MyApp", " Valid JWT found: ${AuthToken.getToken(this)?.length ?: 0} chars")
+            Log.d("MyApp", " DeviceID: ${AuthToken.getDeviceId(this)}")
         } else {
-            Log.d("MyApp", "🚫 No JWT - user needs to login")
+            Log.d("MyApp", " No JWT - user needs to login")
             AuthToken.clearToken(this)  // Clean old invalid tokens
         }
         // Initialize any global resources here

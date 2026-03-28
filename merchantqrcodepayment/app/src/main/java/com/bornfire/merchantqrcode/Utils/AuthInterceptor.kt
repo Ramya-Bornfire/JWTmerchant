@@ -7,37 +7,29 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import okhttp3.Request
 import android.util.Log
-
 class AuthInterceptor(private val context: Context) : Interceptor {
-
     override fun intercept(chain: Interceptor.Chain): Response {
-        val original: Request = chain.request()
-        val token = AuthToken.getToken(context)
-        val deviceId = AuthToken.getDeviceId(context)
+        val request = chain.request()
+        val sharedPref = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val token = sharedPref.getString("jwt_token", null)
 
-        Log.d("AUTH", "🔗 Request: ${original.url} | Token: ${token?.length ?: 0} | Device: ${deviceId?.take(8)}...")
-
-        val requestBuilder = original.newBuilder()
-
-
-        if (!token.isNullOrEmpty()) {
-            requestBuilder.header("Authorization", "Bearer $token")
+        // Add token if available and not a login/otp request
+        val newRequest = if (token != null && !isAuthEndpoint(request.url.toString())) {
+            Log.d("AuthInterceptor", "✅ Adding token to ${request.url}")
+            request.newBuilder()
+                .header("Authorization", "Bearer $token")
+                .build()
         } else {
-            Log.w("AUTH", "⚠️ No token - Public endpoint?")
+            request
         }
-        if (!deviceId.isNullOrEmpty()) {
-            requestBuilder.header("Device-Id", deviceId)
-        }
+        return chain.proceed(newRequest)
+    }
 
-
-        val request = requestBuilder.build()
-        val response = chain.proceed(request)
-
-        // Log failures
-        if (!response.isSuccessful) {
-            Log.e("AUTH", "❌ API FAILED ${response.code}: ${response.message}")
-        }
-
-        return response
+    private fun isAuthEndpoint(url: String): Boolean {
+        return url.contains("/api/LoginAndroid") ||
+                url.contains("/api/OtpForAndroid") ||
+                url.contains("/api/OtpForMerchant") ||
+                url.contains("/api/OtpForUser") ||
+                url.contains("/api/CheckDeviceId")
     }
 }

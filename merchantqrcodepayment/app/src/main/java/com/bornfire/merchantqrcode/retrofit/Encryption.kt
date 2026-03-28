@@ -65,9 +65,8 @@ object Encryption {
     }
 
     fun generatePSUDeviceId(): String {
-//        val uuid = UUID.randomUUID()
-//        return uuid.toString()
-        return "Bornfire@123456789KeyX"
+       val uuid = UUID.randomUUID()
+       return uuid.toString()
     }
     fun encrypt(unencryptedString: String, psuDeviceID: String): String {
         return try {
